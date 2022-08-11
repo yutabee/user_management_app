@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 
 const Home:FC  = memo(() => {
     return (
-      <div>
-       <p>ホームページです.</p>
+     <>
+        <p>This is Homepage!!</p>
         <Outlet/>
-      </div>
+     </>
   )
 })
 
