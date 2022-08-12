@@ -20,8 +20,8 @@ export const useAuth = () => {
             axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
                 .then((res) => {
                     if (res.data) {
-                        
-                        setLoginUser(res.data);
+                        const isAdmin = res.data.id === 10 ? true : false;  //擬似的にisAdmiFlagを作成
+                        setLoginUser({...res.data ,isAdmin});  //スプレッド構文で追加
 
                         showMessage({ title: 'ログインしました', status: 'success' });
                         navigate('/home');

@@ -13,7 +13,7 @@ const UserManagement: FC = memo(() => {
   const { selectedUser, onSelectUser } = useSelectUser();
   
   const { loginUser } = useLoginUser();
-  console.log(loginUser);
+  // console.log(loginUser);
   
   const onClickUser = useCallback(
     (id: number) => {
@@ -28,7 +28,7 @@ const UserManagement: FC = memo(() => {
   <>   
         {
           loading ? (
-          <Center h='100vh'>
+        <Center h='100vh'>
             <Spinner/>
           </Center>
         ) : (
@@ -48,7 +48,12 @@ const UserManagement: FC = memo(() => {
              </Wrap >
         )
       }   
-     <UserDetailModal user={selectedUser} isOpen={isOpen} onClose={onClose} />
+      <UserDetailModal
+        user={selectedUser}
+        isAdmin={loginUser?.isAdmin}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
    </>
   );
 });
