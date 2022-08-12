@@ -1,6 +1,6 @@
-import Home from "../components/pages/Home ";
-import Setting from "../components/pages/Setting";
-import UserManagement from "../components/pages/UserManagement";
+import Home from "../components/pages/home/Home ";
+import Setting from "../components/pages/home/Setting";
+import UserManagement from "../components/pages/home/UserManagement";
 
 
 export const homeRoutes = [
