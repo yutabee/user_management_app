@@ -7,18 +7,22 @@ import { Page404 } from '../components/pages/Page404';
 import Setting from '../components/pages/home/Setting';
 import UserManagement from '../components/pages/home/UserManagement';
 import HeaderLayouts from '../components/templates/HeaderLayouts';
+import { LoginUserProvider } from '../providers/LoginUserProvider';
+
 // import { homeRoutes } from './HomeRoutes';
 
 const Router:FC = memo(() => {
-  return (
-    <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={<HeaderLayouts><Home /></HeaderLayouts>} > 
-            <Route path='management' element={<UserManagement/>} />
-            <Route path='setting' element={<Setting/>} />  
-        </Route>
-        <Route path="/*" element={<Page404 />} />
-    </Routes>
+    return (
+    <LoginUserProvider>
+        <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/home' element={<HeaderLayouts><Home /></HeaderLayouts>} > 
+                <Route path='management' element={<UserManagement/>} />
+                <Route path='setting' element={<Setting/>} />  
+            </Route>
+            <Route path="/*" element={<Page404 />} />
+        </Routes>
+    </LoginUserProvider>
   );
 });
 
